@@ -2,15 +2,17 @@ import React from 'react';
 
 import {styled} from '../../config/stitches';
 
+import Button from '../Button';
+
 const Container = styled('li', {
-  display: 'flex',
+  display: 'grid',
+  gridTemplateColumns: '60px auto 80px',
   alignItems: 'center',
   listStyleType: 'none',
   marginBottom: '40px',
 });
 
 const DogInformation = styled('div', {
-  marginLeft: '16px',
   display: 'flex',
   flexDirection: 'column',
 });
@@ -50,6 +52,7 @@ const DogDetails = ({dogData}: DogDetailsProps) => {
         <Name>{dogData.name}</Name>
         <Likes>{dogList}</Likes>
       </DogInformation>
+      <Button>Like</Button>
     </Container>
   );
 };
