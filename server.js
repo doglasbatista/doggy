@@ -14,6 +14,7 @@ const typeDefs = gql`
     id: ID
     name: String
     imageUrl: String
+    likes: Int
   }
 `;
 
@@ -23,12 +24,14 @@ const dogs = [
     name: 'Caramel',
     imageUrl:
       'https://www.hypeness.com.br/wp-content/uploads/2019/09/Vira-lata_Caramelo_1.jpg',
+    likes: 0,
   },
   {
     id: v4(),
     name: 'Pingo',
     imageUrl:
       'https://www.petlove.com.br/images/breeds/192401/profile/original/srd-p.jpg?1532539578',
+    likes: 0,
   },
 ];
 
