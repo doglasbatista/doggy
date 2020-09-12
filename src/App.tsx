@@ -1,12 +1,24 @@
 import React from 'react';
 import {reset} from 'stitches-reset';
 
-import {css} from './config/stitches';
+import DogList from './components/DogList';
+
+import {css, styled} from './config/stitches';
 
 css.global(reset);
 
+const Container = styled('div', {
+  width: '90%',
+  maxWidth: '900px',
+  margin: '40px auto 0',
+});
+
 function App() {
-  return <div className="App">Doggy</div>;
+  return (
+    <Container>
+      <DogList />
+    </Container>
+  );
 }
 
 export default App;
