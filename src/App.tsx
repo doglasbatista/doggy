@@ -1,6 +1,7 @@
 import React from 'react';
 import {reset} from 'stitches-reset';
 
+import DogForm from './components/DogForm';
 import DogList from './components/DogList';
 
 import {css, styled} from './config/stitches';
@@ -16,6 +17,7 @@ const Container = styled('div', {
 function App() {
   return (
     <Container>
+      <DogForm />
       <DogList />
     </Container>
   );
