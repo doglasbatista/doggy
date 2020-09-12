@@ -26,6 +26,7 @@ const Avatar = styled('img', {
 const Name = styled('span', {
   fontSize: '15px',
   fontWeight: 'bold',
+  marginBottom: '4px',
 });
 
 const Likes = styled('span', {

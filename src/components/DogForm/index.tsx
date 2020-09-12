@@ -23,9 +23,12 @@ const Input = styled('input', {
 });
 
 const Form = styled('form', {
-  marginBottom: '24px',
+  marginBottom: '40px',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gridGap: '12px',
   Button: {
-    width: '100%',
+    gridColumn: '1 / span 2',
     height: '40px',
   },
 });
@@ -38,7 +41,7 @@ const DogForm = () => {
         <Input type="text" />
       </FormGoup>
       <FormGoup>
-        <Label>Name</Label>
+        <Label>Image URL</Label>
         <Input type="text" />
       </FormGoup>
       <Button>Add</Button>

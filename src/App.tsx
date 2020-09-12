@@ -6,7 +6,12 @@ import DogList from './components/DogList';
 
 import {css, styled} from './config/stitches';
 
-css.global(reset);
+console.log(reset);
+
+css.global({
+  ...reset,
+  body: {...reset.body, fontFamily: "'Space Mono', monospace"},
+});
 
 const Container = styled('div', {
   width: '90%',
