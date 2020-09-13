@@ -1,25 +1,48 @@
-import React, {useState, ChangeEvent} from 'react';
+import React, {useState, ChangeEvent, FormEvent} from 'react';
+import gql from 'graphql-tag';
+import {useMutation} from 'urql';
 
 import Button from '../Button';
 
 import {FormGoup, Label, Input, Form} from './styles';
 
+const CREATE_DOG = gql`
+  mutation createDog($name: String!, $imageUrl: String!) {
+    dogs(name: $name, imageUrl: $imageUrl) {
+      id
+      name
+      imageUrl
+      likes
+    }
+  }
+`;
+
 const DogForm = () => {
+  const [_, createDog] = useMutation(CREATE_DOG);
   const [dogData, setDogData] = useState({
     name: '',
     imageUrl: '',
   });
 
   const updateDogData = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.id);
     setDogData({
       ...dogData,
       [event.target.id]: event.target.value,
     });
   };
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const {name, imageUrl} = dogData;
+
+    await createDog({name, imageUrl});
+
+    setDogData({name: '', imageUrl: ''});
+  };
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <FormGoup>
         <Label>Name</Label>
         <Input
