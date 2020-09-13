@@ -1,32 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useQuery} from 'urql';
 
 import DogDetails from '../DogDetails';
 
-const dogs = [
-  {
-    id: 1,
-    name: 'Caramel',
-    imageUrl:
-      'https://www.hypeness.com.br/wp-content/uploads/2019/09/Vira-lata_Caramelo_1.jpg',
-    likes: 1,
-  },
-  {
-    id: 2,
-    name: 'Pingo',
-    imageUrl:
-      'https://www.petlove.com.br/images/breeds/192401/profile/original/srd-p.jpg?1532539578',
-    likes: 0,
-  },
-];
+import DogModel from '../../model/Dog';
 
 const DogList = () => {
+  const [{data, fetching}] = useQuery({
+    query: `{
+      dogs {
+        id,
+        name
+        imageUrl
+        likes
+      }
+    }`,
+  });
+
+  if (fetching) return <div>Loading...</div>;
+
   return (
     <div>
-    {dogs.map(dog => (
-      <DogDetails dogData={dog} key={dog.id} />
-    ))}
+      {data.dogs.map((dog: DogModel) => (
+        <DogDetails dogData={dog} key={dog.id} />
+      ))}
     </div>
-  )
+  );
 };
 
 export default DogList;

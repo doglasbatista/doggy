@@ -5,28 +5,25 @@ import DogForm from './components/DogForm';
 import DogList from './components/DogList';
 import Header from './components/Header';
 
-import {css, styled} from './config/stitches';
+import {Container} from './App.styles';
 
-console.log(reset);
+import {css} from './config/stitches';
+import {client, Provider} from './config/graphqlClient';
 
 css.global({
   ...reset,
   body: {...reset.body, fontFamily: "'Space Mono', monospace"},
 });
 
-const Container = styled('div', {
-  width: '90%',
-  maxWidth: '900px',
-  margin: '0 auto',
-});
-
 function App() {
   return (
-    <Container>
-      <Header />
-      <DogForm />
-      <DogList />
-    </Container>
+    <Provider value={client}>
+      <Container>
+        <Header />
+        <DogForm />
+        <DogList />
+      </Container>
+    </Provider>
   );
 }
 
