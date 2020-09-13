@@ -50,19 +50,19 @@ const Mutation = {
     return dog;
   },
 
-  likeDog: (_, {id}) => {
-    const dogIndex = dogs.findIndex(dog => dog.id === id);
-    let dog = dogs[dogIndex];
+  likeDog: async (_, {id}) => {
+    return await new Promise(resolve => {
+      setTimeout(() => {
+        const dogIndex = dogs.findIndex(dog => dog.id === id);
+        let dog = dogs[dogIndex];
 
-    dog = {...dog, likes: dog.likes + 1};
+        dog = {...dog, likes: dog.likes + 1};
 
-    dogs = [
-      ...dogs.slice(0, dogIndex),
-      dog,
-      ...dogs.slice(dogIndex + 1),
-    ]
+        dogs = [...dogs.slice(0, dogIndex), dog, ...dogs.slice(dogIndex + 1)];
 
-    return dog;
+        resolve(dog);
+      }, 1000);
+    });
   },
 };
 
