@@ -41,7 +41,9 @@ const Mutation = {
       id: v4(),
       name,
       imageUrl,
+      likes: 0,
     };
+
     dogs.push(dog);
 
     return dog;
