@@ -36,6 +36,12 @@ let dogs = [
   },
 ];
 
+const Query = {
+  dogs: async () => {
+    return await new Promise(resolve => setTimeout(() => resolve(dogs), 1000));
+  },
+};
+
 const Mutation = {
   dogs: (_, {name, imageUrl}) => {
     const dog = {
@@ -67,9 +73,7 @@ const Mutation = {
 };
 
 const resolvers = {
-  Query: {
-    dogs: () => dogs,
-  },
+  Query,
   Mutation,
 };
 

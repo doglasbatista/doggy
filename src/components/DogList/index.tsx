@@ -2,11 +2,14 @@ import React from 'react';
 import {useQuery} from 'urql';
 
 import DogDetails from '../DogDetails';
+import Button from '../Button';
 
 import DogModel from '../../model/Dog';
 
+import {LoadDogs} from './styles';
+
 const DogList = () => {
-  const [{data, fetching}] = useQuery({
+  const [{data, fetching}, getDogs] = useQuery({
     query: `{
       dogs {
         id,
@@ -15,13 +18,21 @@ const DogList = () => {
         likes
       }
     }`,
+    // pause: true,
   });
-
-  if (fetching) return <div>Loading...</div>;
 
   return (
     <div>
-      {data.dogs.map((dog: DogModel) => (
+      {!data && (
+        <LoadDogs>
+          {fetching ? (
+            <span>Loading...</span>
+          ) : (
+            <Button onClick={getDogs}>Get Dogs </Button>
+          )}
+        </LoadDogs>
+      )}
+      {data?.dogs?.map((dog: DogModel) => (
         <DogDetails dogData={dog} key={dog.id} />
       ))}
     </div>
