@@ -1,26 +1,13 @@
-import React, {ReactNode} from 'react';
-import {styled} from '../../config/stitches';
+import React, {ReactNode, ButtonHTMLAttributes} from 'react';
 
-interface ButtonProps {
+import {StyledButton} from './styles';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-const StyledButton = styled('button', {
-  border: 'none',
-  backgroundColor: '#000',
-  color: '#fff',
-  padding: '8px',
-  borderRadius: '3px',
-  cursor: 'pointer',
-  transition: '.3s ease-in',
-
-  ':hover': {
-    backgroundColor: '#232121',
-  },
-});
-
-const Button = ({children}: ButtonProps) => {
-  return <StyledButton>{children}</StyledButton>;
+const Button = ({children, ...props}: ButtonProps) => {
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
 export default Button;
