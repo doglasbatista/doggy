@@ -1,4 +1,4 @@
-import {css, styled} from './config/stitches';
+import {styled} from './config/stitches';
 
 const Container = styled('div', {
   width: '90%',
