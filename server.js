@@ -8,6 +8,7 @@ const typeDefs = gql`
 
   type Mutation {
     dogs(name: String, imageUrl: String): Dog
+    likeDog(id: ID): Dog
   }
 
   type Dog {
@@ -18,7 +19,7 @@ const typeDefs = gql`
   }
 `;
 
-const dogs = [
+let dogs = [
   {
     id: v4(),
     name: 'Caramel',
@@ -45,6 +46,21 @@ const Mutation = {
     };
 
     dogs.push(dog);
+
+    return dog;
+  },
+
+  likeDog: (_, {id}) => {
+    const dogIndex = dogs.findIndex(dog => dog.id === id);
+    let dog = dogs[dogIndex];
+
+    dog = {...dog, likes: dog.likes + 1};
+
+    dogs = [
+      ...dogs.slice(0, dogIndex),
+      dog,
+      ...dogs.slice(dogIndex + 1),
+    ]
 
     return dog;
   },
