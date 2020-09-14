@@ -9,7 +9,7 @@ import DogModel from '../../model/Dog';
 import {LoadDogs} from './styles';
 
 const DogList = () => {
-  const [{data, fetching}, getDogs] = useQuery({
+  const [{data, fetching}, getDogs] = useQuery<{dogs: DogModel[]}>({
     query: `{
       dogs {
         id,

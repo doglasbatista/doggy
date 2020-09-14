@@ -8,6 +8,7 @@ const StyledButton = styled('button', {
   borderRadius: '3px',
   cursor: 'pointer',
   transition: '.3s ease-in',
+  height: '40px',
 
   ':hover': {
     backgroundColor: '#232121',

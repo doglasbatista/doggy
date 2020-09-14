@@ -5,6 +5,10 @@ const LoadDogs = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+
+  Button: {
+    width: '200px',
+  },
 });
 
 export {LoadDogs};
