@@ -23,8 +23,7 @@ let dogs = [
   {
     id: v4(),
     name: 'Caramel',
-    imageUrl:
-      'https://www.hypeness.com.br/wp-content/uploads/2019/09/Vira-lata_Caramelo_1.jpg',
+    imageUrl: 'https://fotos.amomeupet.org/uploads/fotos/0x800_1568662224_5d7fe2d09bccd.jpeg',
     likes: 0,
   },
   {

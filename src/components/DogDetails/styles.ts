@@ -17,6 +17,7 @@ const Avatar = styled('img', {
   width: '40px',
   height: '40px',
   borderRadius: '50%',
+  objectFit: 'cover',
 });
 
 const Name = styled('span', {
@@ -30,4 +31,4 @@ const Likes = styled('span', {
   opacity: '.5',
 });
 
-export { Container, DogInformation, Avatar, Name, Likes }
+export {Container, DogInformation, Avatar, Name, Likes};
