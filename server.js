@@ -23,7 +23,8 @@ let dogs = [
   {
     id: v4(),
     name: 'Caramel',
-    imageUrl: 'https://fotos.amomeupet.org/uploads/fotos/0x800_1568662224_5d7fe2d09bccd.jpeg',
+    imageUrl:
+      'https://fotos.amomeupet.org/uploads/fotos/0x800_1568662224_5d7fe2d09bccd.jpeg',
     likes: 0,
   },
   {
@@ -37,7 +38,9 @@ let dogs = [
 
 const Query = {
   dogs: async () => {
-    return await new Promise(resolve => setTimeout(() => resolve(dogs), 1000));
+    return await new Promise(resolve =>
+      setTimeout(() => resolve(dogs), Math.floor(Math.random() * 3000) + 1000),
+    );
   },
 };
 
