@@ -34,7 +34,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
+    "lint": "eslint .",
     "check:types": "tsc"
   },
   "eslintConfig": {
