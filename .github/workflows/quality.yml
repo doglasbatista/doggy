@@ -32,5 +32,11 @@ jobs:
       - name: install dependencies
         run: yarn
 
+      - name: eslint
+        run: yarn lint
+
+      - name: typecheck
+        run: yarn check:types
+
       - name: test
         run: yarn test --coverage
