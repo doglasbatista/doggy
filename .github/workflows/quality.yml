@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  pull_request:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          
+      - name: install dependencies
+        run: yarn
+        
+      - name: test
+        run: yarn test --coverage
